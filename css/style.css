@@ -1,0 +1,228 @@
+body {
+  background: #262626;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+
+  .container {
+    margin-top: 50px;
+    width: 280px;
+    height: 450px;
+  }
+}
+
+/* caracasa exteror consola */
+.carcasa-consola {
+  position: relative;
+  height: 100%;
+  background: #b9b7b7;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  padding: 6%; /* Separación al div-Display */
+  box-shadow: 0px 0px 2px 2px#eeecec;
+}
+.div-Display {
+  position: relative;
+  height: 50%;
+  background: #949393;
+  border-radius: 5px;
+}
+
+/* añadimos un div eliptico a div-Display en la parte inferior*/
+.div-Display::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 90px;
+  background: #949393;
+  bottom: -20px;
+  left: 0;
+  border-radius: 30%;
+}
+
+.encendido {
+  position: absolute;
+  top: 35%;
+  left: 2.5%;
+  color: #cac8c8;
+  font-size: 0.6em;
+  text-shadow:  0 0 2px rgb(209, 13, 111), 0 0 5px rgb(187, 32, 109), 0 0 5px hotpink, 0 0 20px hotpink, 0 0 30px 
+}
+
+.encendido::before,
+.encendido::after,
+.encendido span {
+  content: '';
+  width: 1em;
+  height: 1em;
+  background: rgb(170, 2, 156);
+  position: absolute;
+  top: -2em;
+  border-radius: 50%;
+}
+
+/* Primer led */
+.encendido::after,
+span {
+  left: 0.1em;
+}
+
+/* Sengundo led */
+span {
+  left: 1.7em;
+
+}
+
+/* Pantalla de juego */
+.pantalla {
+  position: absolute;
+  width: 10em;
+  height: 9em;
+ /* background: rgba(173, 216, 230, 0.726);  */
+  background-image: url("https://i.makeagif.com/media/1-22-2016/fu5Zwq.gif");
+  background-size: cover;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 0px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Logo Display */
+img {
+  width: 50%;
+  position: absolute;
+  bottom: 6%;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  z-index: 2;
+}
+
+/* div que contine los botnoes de control y de jeugo A y B*/
+.bloque-botones {
+  width: 80%;
+  height: 20px;
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* botones control X */
+.btnCtrl {
+  position: relative;
+  width: 60px;
+  height: 20px;
+  background: #1a1a1a;
+  border-radius: 4px;
+  margin-left: 15px;
+}
+
+/* copia los botones de control X para Y */
+.btnCtrl::before {
+  position: relative;
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 60px;
+  background: #1a1a1a;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 4px;
+}
+
+/* botonoes izquierdos A y B */
+.btnAB {
+  width: 70px;
+  height: 60px;
+  position: relative;
+
+  & .btnA {
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background: #262626;
+    color: #636363;
+    display: block;
+    position: absolute;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 2px 2px#eeecec;
+  }
+
+  & .btnB {
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: #262626;
+    color: #727272;
+    display: block;
+    position: absolute;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 2px 2px#eeecec;
+
+   
+  }
+}
+.btnB:hover {
+  background: rgba(16, 149, 197, 0.726);
+}
+
+.btnA:hover {
+  background: rgba(34, 142, 182, 0.726);
+}
+
+
+/* Botones Selec Start */
+.inicioSeleccion {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+
+  width: 95%;
+  text-align: center;
+
+  font-size: 0.8em;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: -1.4em;
+    left: 35%;
+    width: 2.4em;
+    height: 0.8em;
+    background: #262626;
+    border-radius: 50%;
+  }
+
+  &::after {
+    left: 52%;
+  }
+
+  & span {
+    padding: 5px;
+    color: #918e8e;
+    font-weight: 800;
+    font-family: Cambria, Cochin;
+    text-shadow: 0px 0px 4px rgb(136, 136, 136);
+    }
+}
+
